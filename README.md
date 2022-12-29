@@ -1,6 +1,22 @@
 # Fields and validations
-usage: 
 
+## Methods
+
+### pluckMissingLabels()
+stores the missing fields label
+### pluckMissingFields()
+stores the missing fields developer name
+### throwException()
+if there are any missing fields throws and exception with the list of missing fields
+### throwException(String message)
+if there are any missing fields throws and exception with a custom message.
+### addErrors()
+Add all the errors to the sObject.
+
+### addErrors(String message)
+Add all the errors to the sObject with a custom message.
+
+### usage:
 ```
     Account acc =  new Account(name = 'accountCompany');
 
@@ -14,9 +30,10 @@ usage:
         .setSObject(acc)
         .setFieldList(fieldList)
         .pluckMissingLabels()
-        .throwException(); //message: 'The following fields are required: billing address, custom field'
-    
+        .throwException();
 ```
+if there are any missing fields throws the following AuraHandledException:
+> 'The following fields are required: billing address, custom field'
 ### OR
 
 ```
@@ -30,6 +47,8 @@ usage:
 
     new Fields(acc, fieldLIst)
         .pluckMissingFields()
-        .throwException(); //message: 'The following fields are required: BillingAddress, customField__c'
+        .throwException();
     
 ```
+if there are any missing fields throws the following AuraHandledException:
+> 'The following fields are required: BillingAddress, customField__c'
