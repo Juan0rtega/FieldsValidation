@@ -1,4 +1,5 @@
 # Fields and validations
+usage: 
 
 ```
     Account acc =  new Account(name = 'accountCompany');
@@ -16,7 +17,6 @@
         .throwException(); //message: 'The following fields are required: billing address, custom field'
     
 ```
-
 ### OR
 
 ```
